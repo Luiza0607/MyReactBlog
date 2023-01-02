@@ -13,7 +13,7 @@ export function Home() {
 					</Button>
 				</Link>
 			</div>
-			<PostList></PostList>
+			<PostList />
 		</div>
 	);
 }
