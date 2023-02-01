@@ -7,6 +7,7 @@ import { Modal } from 'react-bootstrap';
 import { Navigate } from 'react-router-dom';
 import { removePost } from '../../redux/postsReducer';
 import { useDispatch } from 'react-redux';
+import { dateToStr } from '../../utils/dateToStr';
 
 export function Post() {
 	const { id } = useParams();
@@ -70,11 +71,15 @@ export function Post() {
 						<span className='fw-bold'>Author: </span>
 						{post.author}
 					</p>
-					<p>
+					<p className='mb-0'>
 						<span className='fw-bold'>Published: </span>
-						{post.publishedDate}
+						{dateToStr(post.publishedDate)}
 					</p>
-					<p>{post.content}</p>
+					<p>
+						<span className='fw-bold'>Category: </span>
+						{post.category}
+					</p>
+					<p dangerouslySetInnerHTML={{ __html: post.content }}></p>
 				</div>
 			</>
 		);
